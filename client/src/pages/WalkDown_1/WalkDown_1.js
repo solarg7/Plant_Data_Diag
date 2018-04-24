@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
+import "./WalkDown_1.css";
 
 class Variables extends Component {
   state = {
@@ -84,7 +85,7 @@ class Variables extends Component {
         <Row>
           <Col size="md-4">
             <Jumbotron>
-              <h1>Add a New Reading Point</h1>
+              <h1 id="titulo">Add a New Reading Point</h1>
             </Jumbotron>
             <form>
               <Input
@@ -145,7 +146,7 @@ class Variables extends Component {
           </Col>
           <Col size="md-8 sm-12">
             <Jumbotron>
-              <h1>Click on to Edit a Reading Point</h1>
+              <h1 id="titulo1">Click on to Edit a Reading Point</h1>
             </Jumbotron>
             {this.state.variables.length ? (
               <List>
