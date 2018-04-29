@@ -94,13 +94,13 @@ class Variables extends Component {
                 value={this.state.assetName}
                 onChange={this.handleInputChange}
                 name="assetName"
-                placeholder="Variable Name (required)"
+                placeholder="Asset Name (required)"
               />
               <Input
                 value={this.state.assetLocation}
                 onChange={this.handleInputChange}
                 name="assetLocation"
-                placeholder="Location (required)"
+                placeholder="Asset Location (required)"
               />
               <Input
                 value={this.state.assetE_U}
@@ -112,13 +112,13 @@ class Variables extends Component {
                 value={this.state.upperRange}
                 onChange={this.handleInputChange}
                 name="upperRange"
-                placeholder="max range (required)"
+                placeholder="Max Range (required)"
               />
               <Input
                 value={this.state.lowerRange}
                 onChange={this.handleInputChange}
                 name="lowerRange"
-                placeholder="min range (required)"
+                placeholder="Min Range (required)"
               />
               <Input
                 value={this.state.alarmValue1}
@@ -142,13 +142,13 @@ class Variables extends Component {
                 disabled={!(this.state.assetName && this.state.assetLocation&&this.state.assetE_U)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Variable
+                Submit Asset
               </FormBtn>
             </form>
           </Col>
           <Col size="md-8 sm-12">
             <Jumbotron>
-              <h1 id="titulo1">Click on to Edit an Asset</h1>
+              <h1 id="titulo1">Click the asset to Edit</h1>
             </Jumbotron>
             {this.state.variables.length ? (
               <List>

@@ -3,20 +3,34 @@
 } */
 
 #titulo1 {
-  font-family: 'Merriweather Sans', sans-serif;
-  font-size: 30px;
-  font-weight: lighter;
+  font-family: 'Roboto Slab', serif;
+  /* font-size: 30px; */
+  /* font-weight: lighter; */
 }
 #titulo {
-  font-family: 'Merriweather Sans', sans-serif;
-  font-size: 30px;
-  font-weight: lighter;
+  font-family: 'Roboto Slab', serif;
+  /* font-size: 30px; */
+  /* font-weight: lighter; */
 }
 /* #titulo {
   font-family: 'Merriweather Sans', sans-serif;
   font-size: 30px;
 } */
-
+input {
+  font-family: 'Roboto Slab', serif;
+  /* font-size: 30px; */
+  font-weight: lighter;
+}
+.btn {
+  font-family: 'Roboto Slab', serif;
+  /* font-size: 30px; */
+  /* font-weigh÷t: lighter; */
+}
+.list-group {
+  font-family: 'Roboto Slab', serif;
+  /* font-size: 30px; */
+  /* font-weigh÷t: lighter; */
+}
 body {
   background-color: #a7a6a6;
 }
