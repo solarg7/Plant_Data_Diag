@@ -34,4 +34,20 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+  // ,
+  // createData: function(req, res) {
+  //   db.Historic
+  //     .create(req.body)
+  //     .then(dbHistoric => db.Variable.findOneAndUpdate({}, { $push:{historical: dbHistoric._id}}, {new: true}))
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
+  // findAllData: function(req, res) {
+  //   db.Historic
+  //     .find(req.query)
+  //     .sort({ date: -1 })
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
+
 };

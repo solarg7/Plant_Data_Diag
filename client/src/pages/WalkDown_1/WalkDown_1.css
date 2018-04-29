@@ -1,7 +1,27 @@
-#titulo {
+/* #titulo {
   font-size: 30px;
-}
+} */
 
 #titulo1 {
+  font-family: 'Merriweather Sans', sans-serif;
   font-size: 30px;
+  font-weight: lighter;
+}
+#titulo {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 30px;
+  font-weight: lighter;
+}
+/* #titulo {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 30px;
+} */
+
+body {
+  background-color: #a7a6a6;
+}
+
+.jumbotron{
+padding-left: 0px;
+padding-right: 60px;
 }

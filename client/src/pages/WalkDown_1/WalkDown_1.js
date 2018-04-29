@@ -17,7 +17,10 @@ class Variables extends Component {
     ,
     upperRange: ""
     ,
-    lowerRange: ""
+    lowerRange: "",
+    alarmValue1: "",
+    alarmType: "",
+    historical:""
     // ,
     // alarm_1:[
     //   {alarmValue1: ""},
@@ -33,11 +36,10 @@ class Variables extends Component {
       .then(res =>
         this.setState({ variables: res.data, assetName: "", assetLocation: "", assetE_U: "",
         upperRange: "",
-        lowerRange: ""
-        // ,
-        // alarm_1:[
-        //   {alarmValue1: ""},
-        //   {alarmType: ""}]  
+        lowerRange: "",
+        alarmValue1: "",
+        alarmType: "",
+        historical:""
         })
       )
       .catch(err => console.log(err));
@@ -66,9 +68,9 @@ class Variables extends Component {
 
 
         upperRange: this.state.upperRange,
-        lowerRange: this.state.lowerRange
-        // ,
-        // alarm_1:[{alarmValue1: this.state.alarm_1.alarmValue1}, {alarmType: this.state.alarm_1.alarmType}]
+        lowerRange: this.state.lowerRange,
+        alarmValue1: this.state.alarmValue1,
+        alarmType: this.state.alarmType
       })
 
 
@@ -85,7 +87,7 @@ class Variables extends Component {
         <Row>
           <Col size="md-4">
             <Jumbotron>
-              <h1 id="titulo">Add a New Reading Point</h1>
+              <h1 id="titulo">Add a New Asset</h1>
             </Jumbotron>
             <form>
               <Input
@@ -118,18 +120,18 @@ class Variables extends Component {
                 name="lowerRange"
                 placeholder="min range (required)"
               />
-              {/* <Input
-                value={this.state.alarm_1.alarmValue1}
+              <Input
+                value={this.state.alarmValue1}
                 onChange={this.handleInputChange}
-                name="alarm_1.alarmValue1"
+                name="alarmValue1"
                 placeholder="Limit Value (required)"
               />              
               <Input
-                value={this.state.alarm_1.alarmType}
+                value={this.state.alarmType}
                 onChange={this.handleInputChange}
-                name="alarm_1.alarmType"
+                name="alarmType"
                 placeholder="Limiter Type (required)"
-              />   */}
+              />  
               {/* <TextArea
                 value={this.state.synopsis}
                 onChange={this.handleInputChange}
@@ -146,7 +148,7 @@ class Variables extends Component {
           </Col>
           <Col size="md-8 sm-12">
             <Jumbotron>
-              <h1 id="titulo1">Click on to Edit a Reading Point</h1>
+              <h1 id="titulo1">Click on to Edit an Asset</h1>
             </Jumbotron>
             {this.state.variables.length ? (
               <List>
@@ -154,7 +156,7 @@ class Variables extends Component {
                   <ListItem key={variable._id}>
                     <Link to={"/variables/" + variable._id}>
                       <strong>
-                        {variable.assetName} by {variable.lowerRange} :{variable.assetE_U}  
+                        {variable.assetName} by {variable.alarmType} :{variable.alarmValue1}  
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => this.deleteVariable(variable._id)} />

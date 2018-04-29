@@ -40,7 +40,12 @@ class Detail extends Component {
         </Row>
         <Row>
           <Col size="md-2">
-            <Link to="/">← Back to Authors</Link>
+            <Link to="/variables">← Back to Editor Module</Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-2">
+            <Link to="/">← Back to Home</Link>
           </Col>
         </Row>
       </Container>

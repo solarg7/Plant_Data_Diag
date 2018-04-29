@@ -16,5 +16,28 @@ export default {
   // Saves a book to the database
   saveVariable: function(variableData) {
     return axios.post("/api/variables", variableData);
-  }
+  },
+  // Saves a value to the database 
+  // saveValue: function(valueData) {
+  //   return axios.post("/api/historics", valueData);
+  // },
+    // Gets all variables
+  getVariablesD: function() {
+    return axios.get("/api/historics");
+  },
+  getVariableD: (id) => {
+    return axios.get("/api/historics/" + id);
+  },
+  addHistoric: function(variableData) {
+    return axios.post("/api/historics/:id", variableData);
+  },
+  // Gets all variables
+  // getHistorics: function() {
+  //   return axios.get("/api/historic/:id");
+  // }
+
+  // getVariables: function() {
+  //   return axios.get("/api/variables");
+  // }
+  
 };
