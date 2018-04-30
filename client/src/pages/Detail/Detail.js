@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
-import { Card, CardImg, CardText, CardBody, CardLink,
-  CardTitle, CardSubtitle } from "reactstrap";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+// import { Card, CardImg, CardText, CardBody, CardLink,
+//   CardTitle, CardSubtitle } from "reactstrap";
+
+// // import 'bootstrap/dist/css/bootstrap.min.css';
+import AssetCard from "../../components/AssetCard";
+import "./Detail.css";
 
 class Detail extends Component {
   state = {
@@ -25,8 +28,8 @@ class Detail extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>
-                Asset Name : {this.state.variable.assetName} by {this.state.variable.assetE_U}
+              <h1 id="tituloD">
+                Asset Details:
               </h1>
             </Jumbotron>
           </Col>
@@ -55,18 +58,7 @@ class Detail extends Component {
         <Row>
           <Col size="md-4">    
             <div>
-              <Card>
-                <CardBody>
-                  <CardTitle>Card title</CardTitle>
-                  <CardSubtitle>Card subtitle</CardSubtitle>
-                </CardBody>
-                <img width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-                <CardBody>
-                  <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                  <CardLink href="#">Card Link</CardLink>
-                  <CardLink href="#">Another Link</CardLink>
-                </CardBody>
-              </Card>
+              <AssetCard project={this.state.variable}/>
             </div>
            </Col>
           </Row>

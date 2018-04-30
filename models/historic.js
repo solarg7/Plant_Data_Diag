@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const historicSchema = new Schema({
   
-  // date: { type: Date, default: Date.now },
+  date: { type: Date, default: Date.now },
   savedValue:{ type: Number, required: true},
   // logMark: { type: String, required: true },
   // userPlant: { type: String, required: true }
