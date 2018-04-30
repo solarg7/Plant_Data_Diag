@@ -13,7 +13,7 @@ const Nav = () => (
         <a href="/" className="navbar-brand" id="navTitle">
           <strong>Plant</strong> <strong>dataTrend</strong>
         </a>
-        <a className="navbar-brand"><a className="glyphicon glyphicon-scale"></a> Manual Data Capture Pilot Module <a className="glyphicon glyphicon glyphicon-bell"></a></a>
+        <a className="navbar-brand"><article className="glyphicon glyphicon-scale"></article> Manual Data Capture Pilot Module <article className="glyphicon glyphicon glyphicon-bell"></article></a>
       </div>
     </div>
   </nav>

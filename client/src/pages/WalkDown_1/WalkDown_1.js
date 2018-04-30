@@ -8,6 +8,9 @@ import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 import "./WalkDown_1.css";
 
+import {BootstrapTable, 
+  TableHeaderColumn} from 'react-bootstrap-table';
+
 class Variables extends Component {
   state = {
     variables: [],
@@ -80,6 +83,7 @@ class Variables extends Component {
         .catch(err => console.log(err));
     }
   };
+  
 
   render() {
     return (
@@ -150,6 +154,32 @@ class Variables extends Component {
             <Jumbotron>
               <h1 id="titulo1">Click the asset to Edit</h1>
             </Jumbotron>
+            <div>
+            <BootstrapTable data={this.state.variables}>
+              <TableHeaderColumn isKey dataField='assetLocation'>
+                ID
+              </TableHeaderColumn>
+              <TableHeaderColumn dataField='assetName'>
+                Name
+              </TableHeaderColumn>
+              <TableHeaderColumn dataField='assetE_U'>
+                engineering unit
+              </TableHeaderColumn>
+              <TableHeaderColumn dataField='upperRange'>
+                Max Range
+              </TableHeaderColumn>
+              <TableHeaderColumn dataField='lowerRange'>
+                Low Range
+              </TableHeaderColumn>
+              <TableHeaderColumn dataField='lowerRange'>
+                Low Range
+              </TableHeaderColumn>
+              <TableHeaderColumn >
+                Low Range
+              </TableHeaderColumn>
+
+            </BootstrapTable>
+          </div>
             {this.state.variables.length ? (
               <List>
                 {this.state.variables.map(variable => (
