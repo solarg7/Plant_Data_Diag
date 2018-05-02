@@ -21,7 +21,7 @@ const historicsController = require("../../controllers/historicsController");
 router
   .route("/:id")
   // .get(historicsController.findAllData)
-  // .get(historicsController.findById)
+  .get(historicsController.getHistorics)
   .post(historicsController.addHistoric)
   // .put(variablesController.update)
   // .delete(variablesController.remove);  

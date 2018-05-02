@@ -2,13 +2,13 @@ const db = require("../models");
 
 // Defining methods for the variablesController
 module.exports = {
-  // findAll: function(req, res) {
-  //   db.Historic
-  //     .find(req.query)
-  //     // .sort({ date: -1 })
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  getHistorics: function(req, res) {
+    db.Historic
+      .find(req.query)
+      .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   // findByIdData: function(req, res) {
   //   db.Historic
   //     .findById(req.params.id)
@@ -30,7 +30,7 @@ module.exports = {
         return db.Variable.findOneAndUpdate({_id: req.body.variableId}, {$push:{historical: dbHistoric._id}}, {new:true});
       })
       // .then(dbVariable => res.jason(dbVariable))
-      // .then(dbHistoric => res.json(dbHistoric))
+      .then(dbHistoric => res.json(dbHistoric))
       .catch(err => res.status(422).json(err));
   }
   // update: function(req, res) {

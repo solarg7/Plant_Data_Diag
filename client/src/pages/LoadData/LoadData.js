@@ -4,13 +4,17 @@ import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Input, FormBtn } from "../../components/Form";
+import {Bar, Line, Pie} from "react-chartjs-2";
+import {BootstrapTable, 
+  TableHeaderColumn} from 'react-bootstrap-table';
+import "./LoadData.css";
 // const db = require("../models");
 
 class LoadData extends Component {
   state = {
     variable: [],
-    historic: [],
-    // date: "",
+    historics: [],
+    date: "",
     savedValue:""
     
   };
@@ -18,6 +22,7 @@ class LoadData extends Component {
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
     this.loadVariable();
+    this.loadHistorics();
   }
 
   loadVariable = () =>{
@@ -27,13 +32,21 @@ class LoadData extends Component {
      
   }
 
-  // loadHistorics = () => {
-  //   API.getHistorics()
-  //     .then(res =>
-  //       this.setState({ hostorics: res.data, savedValue: ""
-  //       })
-  //     )
-  //     .catch(err => console.log(err));
+  loadHistorics = () => {
+    API.getHistorics()
+      .then(res =>
+        this.setState({ historics: res.data, savedValue: "", date: ""
+        })
+      )
+      .catch(err => console.log(err));
+  };
+
+  // historicData = () => {
+  //   this.setState = {
+  //     historicData:{
+  //       labels: this.setState.addHistoric.date,
+  //       datasets:this.setState.addHistoric.savedValue
+  //     }}
   // };
 
   handleInputChange2 = event => {
@@ -49,14 +62,19 @@ class LoadData extends Component {
           const variableId= this.props.match.params.id;
           const savedValue = this.state.savedValue;
           // ,const _id = this.state.variable.id;;
-          API.addHistoric({variableId, savedValue})
+          API.addHistoric({variableId, savedValue
+          })
             // .then(variableData => res.json(variableData))
-            .then(res => {
-              // this.loadVariable();
-              // this.loadHistorics();
-              this.handleClearForm();
-            })            
-            .catch(err => console.log(err));
+            // .then(res => {
+            //   // this.loadVariable()
+            //   this.loadHistorics()
+            //   this.handleClearForm()
+
+            .then(res => this.loadHistorics())
+            .catch(err => console.log(err)); 
+            
+
+            
           
           //   // assetNameId: this.assetNameId,
           //   date: Date.now,
@@ -81,7 +99,7 @@ class LoadData extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>
+              <h1 id="tituloD">
                 {this.state.variable.assetName} by {this.state.variable.assetE_U}
               </h1>
             </Jumbotron>
@@ -126,6 +144,34 @@ class LoadData extends Component {
             <Link to="/historics">← Back to Route</Link>
           </Col>
         </Row>
+        <Row>
+          {/* <div className="chart">
+            <Bar 
+              data={this.state.historicData}
+              options = {{
+                  maintainAspectRatio: false
+
+                }}
+              
+            />
+            grafico
+          </div> */}
+        </Row>
+
+          <div>
+            <BootstrapTable data={this.state.historics}>
+              <TableHeaderColumn isKey dataField='_id'>
+                ID
+              </TableHeaderColumn>
+              <TableHeaderColumn dataField='date'>
+                Name
+              </TableHeaderColumn>
+              <TableHeaderColumn dataField='savedValue'>
+                engineering unit
+              </TableHeaderColumn>
+            </BootstrapTable>
+          </div>
+
       </Container>
     );
   }

@@ -32,9 +32,9 @@ export default {
     return axios.post("/api/historics/:id", variableData);
   },
   // Gets all variables
-  // getHistorics: function() {
-  //   return axios.get("/api/historic/:id");
-  // }
+  getHistorics: function() {
+    return axios.get("/api/historics/:id");
+  }
 
   // getVariables: function() {
   //   return axios.get("/api/variables");
