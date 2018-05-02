@@ -22,6 +22,7 @@ router
   .route("/:id")
   // .get(historicsController.findAllData)
   .get(historicsController.getHistorics)
+  .get(historicsController.getAssetHistorics) 
   .post(historicsController.addHistoric)
   // .put(variablesController.update)
   // .delete(variablesController.remove);  

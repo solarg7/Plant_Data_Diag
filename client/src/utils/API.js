@@ -34,8 +34,10 @@ export default {
   // Gets all variables
   getHistorics: function() {
     return axios.get("/api/historics/:id");
+  },
+  getAssetHistorics: function(variableId) {
+    return axios.get("/api/historics/:id", variableId);
   }
-
   // getVariables: function() {
   //   return axios.get("/api/variables");
   // }

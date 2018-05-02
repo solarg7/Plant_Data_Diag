@@ -15,7 +15,8 @@ class LoadData extends Component {
     variable: [],
     historics: [],
     date: "",
-    savedValue:""
+    savedValue:"",
+    savedAssetId:""
     
   };
   // When this component mounts, grab the book with the _id of this.props.match.params.id
@@ -23,6 +24,7 @@ class LoadData extends Component {
   componentDidMount() {
     this.loadVariable();
     this.loadHistorics();
+    this.loadAssetHistorics();
   }
 
   loadVariable = () =>{
@@ -32,10 +34,17 @@ class LoadData extends Component {
      
   }
 
+  loadAssetHistorics = () =>{
+    const variableId= this.props.match.params.id;
+    API.getAssetHistorics(variableId)
+      .then(res => this.setState({ historically: res.data }))
+      .catch(err => console.log(err));   
+  }
+
   loadHistorics = () => {
     API.getHistorics()
       .then(res =>
-        this.setState({ historics: res.data, savedValue: "", date: ""
+        this.setState({ historics: res.data, savedValue: "", date: "", savedAssetId:""
         })
       )
       .catch(err => console.log(err));
@@ -61,8 +70,9 @@ class LoadData extends Component {
         // if (this.state.savedValue) {
           const variableId= this.props.match.params.id;
           const savedValue = this.state.savedValue;
+          const savedAssetId = variableId;
           // ,const _id = this.state.variable.id;;
-          API.addHistoric({variableId, savedValue
+          API.addHistoric({variableId, savedValue, savedAssetId 
           })
             // .then(variableData => res.json(variableData))
             // .then(res => {
@@ -159,7 +169,7 @@ class LoadData extends Component {
         </Row>
 
           <div>
-            <BootstrapTable data={this.state.historics}>
+            <BootstrapTable data={this.state.historically}>
               <TableHeaderColumn isKey dataField='_id'>
                 ID
               </TableHeaderColumn>

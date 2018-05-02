@@ -9,6 +9,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
+  getAssetHistorics: function(req, res) {
+    db.Historic
+      .find({ savedAssetId: { $in: [req.body.variableId] } })
+      .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   // findByIdData: function(req, res) {
   //   db.Historic
   //     .findById(req.params.id)
@@ -33,6 +41,9 @@ module.exports = {
       .then(dbHistoric => res.json(dbHistoric))
       .catch(err => res.status(422).json(err));
   }
+
+
+
   // update: function(req, res) {
   //   db.Variable
   //     .findOneAndUpdate({ _id: req.params.id }, req.body)
