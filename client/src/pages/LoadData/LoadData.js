@@ -14,6 +14,8 @@ class LoadData extends Component {
   state = {
     variable: [],
     historics: [],
+    dataTrend: [],
+    historically: [],
     date: "",
     savedValue:"",
     savedAssetId:""
@@ -25,6 +27,7 @@ class LoadData extends Component {
     this.loadVariable();
     this.loadHistorics();
     this.loadAssetHistorics();
+    this.loadTrend();
   }
 
   loadVariable = () =>{
@@ -38,15 +41,18 @@ class LoadData extends Component {
     const variableId= this.props.match.params.id;
     API.getAssetHistorics(variableId)
       .then(res => this.setState({ historically: res.data }))
+      // .then (res => this.loadTrend())
       .catch(err => console.log(err));   
   }
 
   loadHistorics = () => {
     API.getHistorics()
       .then(res =>
-        this.setState({ historics: res.data, savedValue: "", date: "", savedAssetId:""
+        this.setState({ historics: res.data, savedValue: "", date: "", savedAssetId:"" 
         })
       )
+      .then (res => this.loadTrend())
+      
       .catch(err => console.log(err));
   };
 
@@ -64,6 +70,8 @@ class LoadData extends Component {
           [name]: value
         });
   };
+
+
     
   handleFormSubmit2 = event => {
         event.preventDefault();
@@ -103,7 +111,51 @@ class LoadData extends Component {
     })
   }
 
+
+  loadTrend = () => {
+    
+    // const historicData = this.state.historics
+    // const dateTimeStamp = this.state.historics.map(date => this.state.historics)
+    // const dataHistoricData = this.state.historics.map(savedValue => this.state.historics.savedValue)
+    // const dataHistoricIdData = this.state.historics.map(historic => historics.date)
+    console.log (this.state.historics)
+    
+    this.setState({
+      dataTrend : {
+            labels: this.state.historics,
+            datasets: [
+              {
+                label: 'My First dataset',
+                // xAxisID:dateTimeStamp,
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: 'rgba(75,192,192,0.4)',
+                borderColor: 'rgba(75,192,192,1)',
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: 'rgba(75,192,192,1)',
+                pointBackgroundColor: '#fff',
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                pointHoverBorderColor: 'rgba(220,220,220,1)',
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: this.state.historics
+              }
+            ]
+    }
+
+  })
+    
+  }
+  
+
   render() {
+    // const {dataTrend} =
     return (
       <Container fluid>
         <Row>
@@ -155,21 +207,13 @@ class LoadData extends Component {
           </Col>
         </Row>
         <Row>
-          {/* <div className="chart">
-            <Bar 
-              data={this.state.historicData}
-              options = {{
-                  maintainAspectRatio: false
-
-                }}
-              
-            />
-            grafico
-          </div> */}
+          <div>
+            <Line data={this.state.dataTrend} />
+          </div>
         </Row>
 
           <div>
-            <BootstrapTable data={this.state.historically}>
+            <BootstrapTable data={this.state.historics}>
               <TableHeaderColumn isKey dataField='_id'>
                 ID
               </TableHeaderColumn>

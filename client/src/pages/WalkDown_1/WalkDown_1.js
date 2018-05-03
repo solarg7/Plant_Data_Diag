@@ -152,10 +152,10 @@ class Variables extends Component {
           </Col>
           <Col size="md-8 sm-12">
             <Jumbotron>
-              <h1 id="titulo1">Click the asset to Edit</h1>
+              <h1 id="titulo1">Click the asset to see details</h1>
             </Jumbotron>
             <div>
-            <BootstrapTable data={this.state.variables}>
+            {/* <BootstrapTable data={this.state.variables}>
               <TableHeaderColumn isKey dataField='assetLocation'>
                 ID
               </TableHeaderColumn>
@@ -178,7 +178,7 @@ class Variables extends Component {
                 Low Range
               </TableHeaderColumn>
 
-            </BootstrapTable>
+            </BootstrapTable> */}
           </div>
             {this.state.variables.length ? (
               <List>
@@ -186,7 +186,7 @@ class Variables extends Component {
                   <ListItem key={variable._id}>
                     <Link to={"/variables/" + variable._id}>
                       <strong>
-                        {variable.assetName} by {variable.alarmType} :{variable.alarmValue1}  
+                        {variable.assetLocation} : {variable.assetName} :{variable.assetE_U}  
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => this.deleteVariable(variable._id)} />
