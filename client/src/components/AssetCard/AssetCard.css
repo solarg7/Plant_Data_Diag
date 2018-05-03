@@ -1,5 +1,5 @@
 .card {
-  max-width: 265px;
+  max-width: 500px;
   height: 375px;
   padding: 6px;
   border-style: solid;
@@ -38,4 +38,14 @@
   height: 218px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+h6{ 
+  font-size: 30px;
+
+}
+
+h3{ 
+  font-size: 30px;
+
 }

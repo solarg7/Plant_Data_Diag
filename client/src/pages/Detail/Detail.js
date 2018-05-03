@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
+import { Input, FormBtn } from "../../components/Form";
 // import { Card, CardImg, CardText, CardBody, CardLink,
 //   CardTitle, CardSubtitle } from "reactstrap";
 
@@ -34,34 +35,32 @@ class Detail extends Component {
             </Jumbotron>
           </Col>
         </Row>
-        
-        <Row>
-          <Col size="md-10 md-offset-1">
-            <article>
-              <h1>Synopsis</h1>
-              <p>
-                {this.state.variable.assetName}
-              </p>
-            </article>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-2">
-            <Link to="/variables">← Back to Editor Module</Link>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-2">
-            <Link to="/">← Back to Home</Link>
-          </Col>
-        </Row>
         <Row>
           <Col size="md-4">    
             <div>
               <AssetCard project={this.state.variable}/>
             </div>
            </Col>
-          </Row>
+          </Row>        
+
+
+
+
+        <Row>
+          <Col size="md-3">
+          <FormBtn>  
+            <Link to="/variables">← Editor Module</Link>
+          </FormBtn>           
+          
+          <FormBtn>  
+                <Link to="/historics">← Route Module</Link>
+          </FormBtn>           
+          </Col>
+
+
+        </Row>
+
+
       </Container>
     );
   }

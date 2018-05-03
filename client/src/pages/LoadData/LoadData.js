@@ -162,7 +162,7 @@ class LoadData extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1 id="tituloD">
-                {this.state.variable.assetName} by {this.state.variable.assetE_U}
+                Capture your data: {this.state.variable.assetName} by {this.state.variable.assetE_U}
               </h1>
             </Jumbotron>
           </Col>
@@ -170,17 +170,15 @@ class LoadData extends Component {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>Synopsis Politassss</h1>
+              <h1>Enter Value</h1>
               <p>
-                {this.state.variable.assetName}
+                <h1>{this.state.variable.assetE_U}</h1>
               </p>
             </article>
           </Col>
         </Row>
         <Row>
-          <Col size="md-3">
-            <Link to="/">← Home</Link>
-          </Col>
+
 
           <Col size="md-9">
               
@@ -204,6 +202,11 @@ class LoadData extends Component {
         <Row>
           <Col size="md-2">
             <Link to="/historics">← Back to Route</Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-3">
+            <Link to="/">← Home</Link>
           </Col>
         </Row>
         <Row>

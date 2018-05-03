@@ -24,45 +24,32 @@ class LoadData extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1>
-                {this.state.variable.assetName} by {this.state.variable.assetE_U}
+                Your Plant Data for all
               </h1>
             </Jumbotron>
           </Col>
         </Row>
         <Row>
           <Col size="md-10 md-offset-1">
-            <article>
-              <h1>Synopsis Polita</h1>
-              <p>
-                {this.state.variable.assetName}
-              </p>
-            </article>
+
           </Col>
         </Row>
         <Row>
           <Col size="md-3">
+          <FormBtn>  
             <Link to="/variables">← Editor Module</Link>
+          </FormBtn>           
+          
+          <FormBtn>  
+                <Link to="/historics">← Route Module</Link>
+          </FormBtn>           
           </Col>
 
-          <Col size="md-9">
-              
-            <form>
 
-              
-              {/* <FormBtn
-                disabled={!(this.state.assetName && this.state.assetLocation&&this.state.assetE_U)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Variable
-              </FormBtn> */}
-            </form>
-          </Col>
         </Row>
         <Row>
           <Col size="md-2">
-          <FormBtn>  
-                <Link to="/historics">← Route Module</Link>
-          </FormBtn>
+
           </Col>
         </Row>
       </Container>
