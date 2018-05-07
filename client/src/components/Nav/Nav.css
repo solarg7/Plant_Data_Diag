@@ -1,15 +1,17 @@
 .navbar {
   padding-top: 0px;
   
-  background-color: grey;
+  background-color: rgb(128, 128, 128);
   border-color: grey;
+  padding-top: 10px;
   padding-right: 5px;
   padding-left: 0px;
   font-family: 'Merriweather Sans', sans-serif;
 
+  font-size: 30px;
 }
 
-#navTitle {
+.navTitle {
 
   font-family: 'Merriweather Sans', sans-serif;  
 }
@@ -18,4 +20,12 @@
   color: orange;
 }
 
+#navTitle{
 
+  font-size: 30px;  
+}
+
+#navTitle2{
+
+  font-size: 30px;  
+}

@@ -35,8 +35,12 @@ input {
 body {
   background-color: #a7a6a6;
 }
-
 .jumbotron{
 padding-left: 0px;
 padding-right: 60px;
+}
+
+.form-control{
+font-size: 30rem;
+height: 133px;
 }

@@ -4,6 +4,8 @@ import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Input, FormBtn } from "../../components/Form";
+import { Button } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class LoadData extends Component {
   state = {
@@ -29,27 +31,32 @@ class LoadData extends Component {
             </Jumbotron>
           </Col>
         </Row>
+
         <Row>
           <Col size="md-10 md-offset-1">
 
           </Col>
         </Row>
         <Row>
-          <Col size="md-3">
-          <FormBtn>  
-            <Link to="/variables">← Editor Module</Link>
-          </FormBtn>           
-          
-          <FormBtn>  
-                <Link to="/historics">← Route Module</Link>
-          </FormBtn>           
+          <Col size="md-6">
+
+          <Link to="/variables">
+            <Button color="primary" size="lg" block>  
+              ← Editor Module
+            </Button >           
+          </Link>
+
+         
           </Col>
 
 
-        </Row>
-        <Row>
-          <Col size="md-2">
-
+        
+          <Col size="md-6">
+          <Link to="/historics">
+            <Button color="danger secundary" size="lg" block>  
+                  ← Route Module
+            </Button>
+          </Link>  
           </Col>
         </Row>
       </Container>

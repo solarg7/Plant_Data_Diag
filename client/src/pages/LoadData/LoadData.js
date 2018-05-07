@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
-import { Input, FormBtn } from "../../components/Form";
+import { FormBtn } from "../../components/Form";
 import {Bar, Line, Pie} from "react-chartjs-2";
 import {BootstrapTable, 
   TableHeaderColumn} from 'react-bootstrap-table';
 import "./LoadData.css";
 // const db = require("../models");
+import { Input, Button } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class LoadData extends Component {
   state = {
@@ -116,13 +118,14 @@ class LoadData extends Component {
     
     // const historicData = this.state.historics
     // const dateTimeStamp = this.state.historics.map(date => this.state.historics)
-    // const dataHistoricData = this.state.historics.map(savedValue => this.state.historics.savedValue)
-    // const dataHistoricIdData = this.state.historics.map(historic => historics.date)
-    console.log (this.state.historics)
+    const dataHistoricData = this.state.historics.map(historic => historic.savedValue)
+    const dataHistoricIdData = this.state.historics.map(historic => historic.date)
+    
+    console.log (dataHistoricIdData)
     
     this.setState({
       dataTrend : {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: dataHistoricIdData,
         datasets: [
           {
             label: 'My First dataset',
@@ -143,7 +146,7 @@ class LoadData extends Component {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [65, 59, 80, 81, 56, 55, 40]
+            data: dataHistoricData
           }
         ]
     }
@@ -179,7 +182,7 @@ class LoadData extends Component {
         <Row>
 
 
-          <Col size="md-9">
+          <Col size="md-6">
               
             <form>
               <Input
@@ -197,25 +200,38 @@ class LoadData extends Component {
               </FormBtn>
             </form>
           </Col>
+          <Col size="md-6">
+          
+            <Row>
+              
+                <Line data={this.state.dataTrend} />
+              
+            </Row>
+            </Col>
+
         </Row>
         <Row>
-          <Col size="md-2">
-            <Link to="/historics">← Back to Route</Link>
+          <Col size="md-12">
+
+          <Link to="/variables">
+            <Button color="primary" size="lg">  
+              ← Editor Module
+            </Button >           
+          </Link>
+
+          <Link to="/historics">
+            <Button color="danger secundary" size="lg">  
+                  ← Route Module
+            </Button>
+          </Link>           
           </Col>
-        </Row>
-        <Row>
-          <Col size="md-3">
-            <Link to="/">← Home</Link>
-          </Col>
-        </Row>
-        <Row>
-          <div>
-            <Line data={this.state.dataTrend} />
-          </div>
+
+
         </Row>
 
+
           <div>
-            <BootstrapTable data={this.state.historics}>
+            <BootstrapTable data={this.state.historics} striped hover condensed>
               <TableHeaderColumn isKey dataField='_id'>
                 ID
               </TableHeaderColumn>
