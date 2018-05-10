@@ -26,7 +26,7 @@ class LoadData extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1>
-                Your Plant Data for all
+                Your Plant Data for all Paolita
               </h1>
             </Jumbotron>
           </Col>
